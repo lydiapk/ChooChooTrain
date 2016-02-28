@@ -6,7 +6,6 @@ public class Train
     ArrayList<RailCar> railCars = new ArrayList<RailCar>();
     private int startX;
     private int startY;
-    String carType;
     Color color;
     int counter;
     public Train(int startX, int startY)
@@ -56,6 +55,11 @@ public class Train
             RailCar cab = new Caboose(color, getStartX(), getStartY());
             railCars.add(cab);
         }
+    }
+    
+    public void addCar(int position, String carType, Color color)
+    {
+    
     }
     public void showCars(Graphics g)
     {
