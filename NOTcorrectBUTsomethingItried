@@ -1,0 +1,140 @@
+import java.awt.*;
+import java.util.*;
+
+public class Train
+{
+    ArrayList<RailCar> railCars = new ArrayList<RailCar>();
+    private int startX;
+    private int startY;
+    Color color;
+    int counter;
+    int position;
+    RailCar temp;
+    public Train(int startX, int startY)
+    {
+        this.startX = startX;
+        this.startY = startY;
+        counter = 0;
+    }
+    public void addCar(String carType, Color color)
+    {
+        this.color = color;
+        counter += 1;
+
+        if(carType == "Locomotive")
+        {
+            if (counter != 1)
+            {
+                setStartX(getStartX() + 175);
+            }
+            RailCar loco = new Locomotive(color, getStartX(), getStartY());
+            railCars.add(loco);
+        }
+        else if(carType == "PassengerCar")
+        {
+            if (counter != 1)
+            {
+                setStartX(getStartX() + 175);
+            }
+            RailCar pass = new PassengerCar(color, getStartX(), getStartY());
+            railCars.add(pass);
+        }
+        else if(carType == "FreightCar")
+        {
+            if (counter != 1)
+            {
+                setStartX(getStartX() + 175);
+            }
+            RailCar freight = new FreightCar(color, getStartX(), getStartY());
+            railCars.add(freight);
+        }
+        else if(carType == "Caboose")
+        {
+            if (counter != 1)
+            {
+                setStartX(getStartX() + 175);
+            }
+            RailCar cab = new Caboose(color, getStartX(), getStartY());
+            railCars.add(cab);
+        }
+    }
+        public void addCar(int position, String carType, Color color)
+    {
+        this.color = color;
+        counter += 1;
+        
+        if(carType == "Locomotive")
+        {
+            if (counter != 1)
+            {
+                setStartX(((position - 1) * 175) + 100);
+            }
+            RailCar loco = new Locomotive(color, getStartX(), getStartY());
+            for(int k = position; k <= railCars.size(); k++)
+            {
+                temp = railCars.get(position);
+                railCars.remove(position);
+                railCars.add(position + 1, temp);
+            }
+            railCars.add(loco);
+        }
+        else if(carType == "PassengerCar")
+        {
+            if (counter != 1)
+            {
+                setStartX(((position - 1) * 175) + 100);
+            }
+            RailCar pass = new PassengerCar(color, getStartX(), getStartY());
+            for(int k = position; k <= railCars.size(); k++)
+            {
+                temp = railCars.get(position);
+                railCars.remove(position);
+                railCars.add(position + 1, temp);
+            }
+            railCars.add(pass);
+        }
+        else if(carType == "FreightCar")
+        {
+            if (counter != 1)
+            {
+                setStartX(((position - 1) * 175) + 100);
+            }
+            RailCar freight = new FreightCar(color, getStartX(), getStartY());
+            for(int k = position; k <= railCars.size(); k++)
+            {
+                temp = railCars.get(position);
+                railCars.remove(position);
+                railCars.add(position + 1, temp);
+            }
+            railCars.add(freight);
+        }
+        else if(carType == "Caboose")
+        {
+            if (counter != 1)
+            {
+                setStartX(((position - 1) * 175) + 100);
+            }
+            RailCar cab = new Caboose(color, getStartX(), getStartY());
+            for(int k = position; k <= railCars.size(); k++)
+            {
+                temp = railCars.get(position);
+                railCars.remove(position);
+                railCars.add(position + 1, temp);
+            }
+            railCars.add(cab);
+        }
+    }
+    public void showCars(Graphics g)
+    {
+        for(RailCar railCar: railCars)
+        {
+            railCar.drawCar(g);
+        }
+    }
+    public int getStartX()      {return startX;}
+    public int getStartY()      {return startY;}
+    public void setStartX(int startX)   {this.startX = startX;}
+    public void setStartY(int startY)   {this.startY = startY;}
+    public int getCounter()     {return counter;}
+}
+    
