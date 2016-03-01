@@ -16,6 +16,7 @@ public class Train
         this.startY = startY;
         counter = 0;
     }
+    
     public void addCar(String carType, Color color)
     {
         this.color = color;
@@ -58,72 +59,62 @@ public class Train
             railCars.add(cab);
         }
     }
-        public void addCar(int position, String carType, Color color)
+    
+    public void addCar(int position, String carType, Color color)
     {
         this.color = color;
         counter += 1;
         
         if(carType == "Locomotive")
         {
-            if (counter != 1)
-            {
-                setStartX(((position - 1) * 175) + 100);
-            }
+            setStartX(((position) * 175)+100);
             RailCar loco = new Locomotive(color, getStartX(), getStartY());
             for(int k = position; k <= railCars.size(); k++)
             {
-                temp = railCars.get(position);
-                railCars.remove(position);
-                railCars.add(position + 1, temp);
+                temp = railCars.get(k);
+                railCars.remove(k);
+                railCars.add(k + 1, temp);
             }
-            railCars.add(loco);
+            railCars.add((position-1),loco);
         }
         else if(carType == "PassengerCar")
         {
-            if (counter != 1)
-            {
-                setStartX(((position - 1) * 175) + 100);
-            }
+            setStartX(((position) * 175)+100);
             RailCar pass = new PassengerCar(color, getStartX(), getStartY());
             for(int k = position; k <= railCars.size(); k++)
             {
-                temp = railCars.get(position);
-                railCars.remove(position);
-                railCars.add(position + 1, temp);
+                temp = railCars.get(k);
+                railCars.remove(k);
+                railCars.add(k + 1, temp);
             }
-            railCars.add(pass);
+            railCars.add((position-1),pass);
         }
         else if(carType == "FreightCar")
         {
-            if (counter != 1)
-            {
-                setStartX(((position - 1) * 175) + 100);
-            }
+            setStartX(((position) * 175)+100);
             RailCar freight = new FreightCar(color, getStartX(), getStartY());
             for(int k = position; k <= railCars.size(); k++)
             {
-                temp = railCars.get(position);
-                railCars.remove(position);
-                railCars.add(position + 1, temp);
+                temp = railCars.get(k);
+                railCars.remove(k);
+                railCars.add(k + 1, temp);
             }
-            railCars.add(freight);
+            railCars.add((position-1),freight);
         }
         else if(carType == "Caboose")
         {
-            if (counter != 1)
-            {
-                setStartX(((position - 1) * 175) + 100);
-            }
+            setStartX(((position) * 175)+100);
             RailCar cab = new Caboose(color, getStartX(), getStartY());
             for(int k = position; k <= railCars.size(); k++)
             {
-                temp = railCars.get(position);
-                railCars.remove(position);
-                railCars.add(position + 1, temp);
+                temp = railCars.get(k);
+                railCars.remove(k);
+                railCars.add(k + 1, temp);
             }
-            railCars.add(cab);
+            railCars.add((position-1),cab);
         }
     }
+    
     public void showCars(Graphics g)
     {
         for(RailCar railCar: railCars)
