@@ -10,6 +10,7 @@ public class Train
     int counter;
     int position;
     RailCar temp;
+                            int tempPos;
     public Train(int startX, int startY)
     {
         this.startX = startX;
@@ -65,7 +66,7 @@ public class Train
         this.color = color;
         counter += 1;
         setStartX(((position) * 175)+100);
-        int tempX = getStartX() + 175;
+
         
         if(carType == "Locomotive")
         {
@@ -76,17 +77,15 @@ public class Train
                 
                 for(int m = position; m < railCars.size(); m++)
                 {
-                    if(railCars.get(m) == Locomotive)
-                    {
-                        temp.add(new Locomotive(color, tempX, getY());
-                    }
-                    //continue this??????
+                    temp.add(railCars.get(m));
                     
+                }
+                for (RailCar tempor : temp)
+                {
+
+                    setStartX(getStartX() + 175);
                     
-                    
-                    //railCars.set(m, new RailCar(color, getStartX()+175, getStartY()));
-                    temp.add(new RailCar(color, tempX, getStartY()));
-                    tempX += 175;
+
                 }
                 for(int t = position; t < railCars.size(); t++)
                 {
@@ -105,10 +104,18 @@ public class Train
             
                 ArrayList<RailCar> temp = new ArrayList<RailCar>();
                 int ind = 0;
+
                 for(int m = position; m < railCars.size(); m++)
                 {
-                    temp.add(new RailCar(color, tempX, getStartY()));
-                    tempX += 175;
+                    temp.add(railCars.get(m));
+                    
+                }
+                for (RailCar tempor : temp)
+                {
+
+                    setStartX(getStartX() + 175);
+                    
+
                 }
                 for(int t = position; t < railCars.size(); t++)
                 {
@@ -129,8 +136,15 @@ public class Train
                 int ind = 0;
                 for(int m = position; m < railCars.size(); m++)
                 {
-                    temp.add(new RailCar(color, tempX, getStartY()));
-                    tempX += 175;
+                    temp.add(railCars.get(m));
+                    
+                }
+                for (RailCar tempor : temp)
+                {
+
+                    setStartX(getStartX() + 175);
+                    
+
                 }
                 for(int t = position; t < railCars.size(); t++)
                 {
@@ -151,8 +165,15 @@ public class Train
                 int ind = 0;
                 for(int m = position; m < railCars.size(); m++)
                 {
-                    temp.add(new RailCar(color, tempX, getStartY()));
-                    tempX += 175;
+                    temp.add(railCars.get(m));
+                    
+                }
+                for (RailCar tempor : temp)
+                {
+
+                    setStartX(getStartX() + 175);
+                    
+
                 }
                 for(int t = position; t < railCars.size(); t++)
                 {
@@ -179,5 +200,5 @@ public class Train
     public void setStartX(int startX)   {this.startX = startX;}
     public void setStartY(int startY)   {this.startY = startY;}
     public int getCounter()     {return counter;}
+    public int getTempPos()     {return tempPos;}
 }
-    
