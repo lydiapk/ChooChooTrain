@@ -64,99 +64,98 @@ public class Train
     {
         this.color = color;
         counter += 1;
+        setStartX(((position) * 175)+100);
+        int tempX = getStartX() + 175;
         
         if(carType == "Locomotive")
         {
-            setStartX(((position) * 175)+100);
             RailCar loco = new Locomotive(color, getStartX(), getStartY());
             
                 ArrayList<RailCar> temp = new ArrayList<RailCar>();
                 int ind = 0;
+
                 for(int m = position; m < railCars.size(); m++)
                 {
-                    temp.add(railCars.get(m));
+                    //railCars.set(m, new RailCar(color, getStartX()+175, getStartY()));
+                    temp.add(new RailCar(color, tempX, getStartY()));
+                    tempX += 175;
                 }
                 for(int t = position; t < railCars.size(); t++)
                 {
                     railCars.remove(t);
                 }        
                 railCars.add(position,loco);
-                for(int w = position + 1; w < railCars.size(); w++)
+                for(int w = (position + 1); w < railCars.size(); w++)
                 {
                     railCars.add(w,temp.get(ind));
                     ind++;
                 }
-            
-            //railCars.add(position,loco);
         }
         else if(carType == "PassengerCar")
         {
-            setStartX(((position) * 175)+100);
             RailCar pass = new PassengerCar(color, getStartX(), getStartY());
             
                 ArrayList<RailCar> temp = new ArrayList<RailCar>();
                 int ind = 0;
                 for(int m = position; m < railCars.size(); m++)
                 {
-                    temp.add(railCars.get(m));
+                    temp.add(new RailCar(color, tempX, getStartY()));
+                    tempX += 175;
                 }
                 for(int t = position; t < railCars.size(); t++)
                 {
                     railCars.remove(t);
                 }        
                 railCars.add(position,pass);
-                for(int w = position + 1; w < railCars.size(); w++)
+                for(int w = (position + 1); w < railCars.size(); w++)
                 {
                     railCars.add(w,temp.get(ind));
                     ind++;
                 }
-            //railCars.add((position-1),pass);
         }
         else if(carType == "FreightCar")
         {
-            setStartX(((position) * 175)+100);
             RailCar freight = new FreightCar(color, getStartX(), getStartY());
             
                 ArrayList<RailCar> temp = new ArrayList<RailCar>();
                 int ind = 0;
                 for(int m = position; m < railCars.size(); m++)
                 {
-                    temp.add(railCars.get(m));
+                    temp.add(new RailCar(color, tempX, getStartY()));
+                    tempX += 175;
                 }
                 for(int t = position; t < railCars.size(); t++)
                 {
                     railCars.remove(t);
                 }        
                 railCars.add(position,freight);
-                for(int w = position + 1; w < railCars.size(); w++)
+                for(int w = (position + 1); w < railCars.size(); w++)
                 {
                     railCars.add(w,temp.get(ind));
                     ind++;
                 }
-            //railCars.add((position-1),freight);
         }
         else if(carType == "Caboose")
         {
-            setStartX(((position) * 175)+100);
             RailCar cab = new Caboose(color, getStartX(), getStartY());
             
                 ArrayList<RailCar> temp = new ArrayList<RailCar>();
                 int ind = 0;
                 for(int m = position; m < railCars.size(); m++)
                 {
-                    temp.add(railCars.get(m));
+                    temp.add(new RailCar(color, tempX, getStartY()));
+                    tempX += 175;
                 }
                 for(int t = position; t < railCars.size(); t++)
                 {
                     railCars.remove(t);
                 }        
                 railCars.add(position,cab);
-                for(int w = position + 1; w < railCars.size(); w++)
+                for(int w = (position + 1); w < railCars.size(); w++)
                 {
                     railCars.add(w,temp.get(ind));
                     ind++;
                 }
-            //railCars.add((position-1),cab);
         }
     }
     
