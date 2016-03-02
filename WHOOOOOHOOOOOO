@@ -78,6 +78,7 @@ public class Train
                 {
                     if(railCars.get(m) == Locomotive)
                     {
+                        temp.add(new Locomotive(color, tempX, getY());
                     }
                     //continue this??????
                     
