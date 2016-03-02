@@ -73,9 +73,16 @@ public class Train
             
                 ArrayList<RailCar> temp = new ArrayList<RailCar>();
                 int ind = 0;
-
+                
                 for(int m = position; m < railCars.size(); m++)
                 {
+                    if(railCars.get(m) == Locomotive)
+                    {
+                    }
+                    //continue this??????
+                    
+                    
+                    
                     //railCars.set(m, new RailCar(color, getStartX()+175, getStartY()));
                     temp.add(new RailCar(color, tempX, getStartY()));
                     tempX += 175;
